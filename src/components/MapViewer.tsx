@@ -26,23 +26,10 @@ interface MapViewerProps {
 
 export function MapViewer({ donations, onDonationClick }: MapViewerProps) {
   return (
-    <MapContainer center={[51.505, -0.09]} zoom={11} style={{ height: "100%", width: "100%" }}>
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' />
-      {donations.map((donation) => (
-        <Marker key={donation.id} position={[parseFloat(String(donation.latitude)), parseFloat(String(donation.longitude))]}>
-          <Popup>
-            <div className="p-2 space-y-2">
-              <h3 className="font-semibold">{donation.food_type}</h3>
-              <p className="text-sm">{donation.quantity}</p>
-              {onDonationClick && (
-                <Button size="sm" onClick={() => onDonationClick(donation)} variant="default">
-                  View Details
-                </Button>
-              )}
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    <MapContainer center={[51.505, -0.09]} zoom={11} style={{ height: "100%", width: "100%" }}><TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' />{donations.map((donation) => (
+        <Marker key={donation.id} position={[parseFloat(String(donation.latitude)), parseFloat(String(donation.longitude))]}><Popup><div className="p-2 space-y-2"><h3 className="font-semibold">{donation.food_type}</h3><p className="text-sm">{donation.quantity}</p>{onDonationClick && (
+                <Button size="sm" onClick={() => onDonationClick(donation)} variant="default">View Details</Button>
+              )}</div></Popup></Marker>
+      ))}</MapContainer>
   );
 }
