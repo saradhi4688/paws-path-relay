@@ -46,7 +46,7 @@ const Rider = () => {
     const { data, error } = await supabase
       .from("donations")
       .select("*")
-      .eq("status", "pending")
+      .in("status", ["pending", "assigned"])
       .order("created_at", { ascending: false });
 
     if (!error && data) {
