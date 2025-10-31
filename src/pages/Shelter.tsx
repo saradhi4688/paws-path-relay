@@ -179,15 +179,8 @@ const Shelter = () => {
                 <div>
                   <Label>Select Location on Map</Label>
                   <div className="h-[300px] rounded-lg overflow-hidden border mt-2">
-                    <MapContainer
-                      center={[51.505, -0.09]}
-                      zoom={13}
-                      style={{ height: "100%", width: "100%" }}
-                    >
-                      <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                      />
+                    <MapContainer center={[51.505, -0.09]} zoom={13} style={{ height: "100%", width: "100%" }}>
+                      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' />
                       <LocationMarker position={position} setPosition={setPosition} />
                     </MapContainer>
                   </div>
